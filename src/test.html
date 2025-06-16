@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Locator Test Page</title>
+</head>
+<body>
+  <h1 id="main-heading">Welcome</h1>
+  <input type="text" placeholder="Enter your name" />
+  <button role="button" id="submit-btn">Submit</button>
+
+  <div class="items">
+    <p data-testid="item-1">Item One</p>
+    <p data-testid="item-2">Item Two</p>
+  </div>
+
+  <iframe srcdoc='<p id="inside-iframe">I am inside iframe</p>'></iframe>
+
+  <my-shadow-root></my-shadow-root>
+
+  <svg id="icon"><circle cx="50" cy="50" r="40"/></svg>
+
+  <script>
+    customElements.define('my-shadow-root', class extends HTMLElement {
+      constructor() {
+        super();
+        const shadow = this.attachShadow({ mode: 'open' });
+        shadow.innerHTML = '<button id="shadow-btn">Click Me</button>';
+      }
+    });
+  </script>
+</body>
+</html>
