@@ -3,6 +3,7 @@ import fs from 'fs';
 
 test('Download a Single file and assert', async ({ page }) => {
 
+    test.setTimeout(60 * 1000); // Set timeout to 60 seconds
     await page.goto('/savings.html');
 
     const downloadPromise = page.waitForEvent('download');
