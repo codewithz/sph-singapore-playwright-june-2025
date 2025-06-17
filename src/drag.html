@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>CMS Image Upload</title>
+  <style>
+    #drop-zone {
+      width: 400px;
+      height: 200px;
+      border: 2px dashed #999;
+      text-align: center;
+      line-height: 200px;
+      color: #aaa;
+      margin-top: 50px;
+    }
+    #drop-zone img {
+      width: 100px;
+      height: auto;
+      display: block;
+      margin: 10px auto;
+    }
+  </style>
+</head>
+<body>
+  <h2>Upload Image</h2>
+  <div id="drop-zone" data-testid="drop-zone">Drop image here</div>
+
+  <script>
+    const dropZone = document.getElementById('drop-zone');
+    dropZone.addEventListener('dragover', e => {
+      e.preventDefault();
+      dropZone.style.borderColor = 'green';
+    });
+
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault();
+      const file = e.dataTransfer.files[0];
+      const img = document.createElement('img');
+      img.src = URL.createObjectURL(file);
+      dropZone.innerHTML = '';
+      dropZone.appendChild(img);
+    });
+  </script>
+</body>
+</html>

@@ -4,6 +4,7 @@ export default defineConfig({
   testDir: './tests',
   reporter: 'html',
   fullyParallel:true,
+  workers:"50%", // Use 50% of available CPU cores for parallel execution
  
   use: {
     headless: false, // Run tests in headful mode
