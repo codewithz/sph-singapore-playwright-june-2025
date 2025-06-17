@@ -27,3 +27,16 @@ const inputs = [
     ["10", "6 months", "After 6 Months you will earn $0.20 on your deposit"],
     ["20", "1 Year", "After 1 Year you will earn $1.00 on your deposit"]
 ];
+
+// ❓ Question:
+// You are testing a savings calculator web page (/savings.html). The page includes:
+
+// A deposit amount input field with data-testid="deposit"
+
+// A savings period dropdown with data-testid="period"
+
+// A result display with data-testid="result"
+
+// You want to write a Playwright test that runs multiple input combinations to validate that the correct result is displayed based on the deposit and period selected.
+
+// How would you write a data-driven test that runs the same logic with different [sum, period, expected result] combinations?
