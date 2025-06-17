@@ -1,5 +1,9 @@
 import { test, expect } from '@playwright/test';
 
+
+// test.use({
+//     viewport: { width: 1280, height: 2000 }
+//   }); 
 test('Screenshot demo', async ({ page }) => {
 
     page.goto('/');
@@ -7,7 +11,8 @@ test('Screenshot demo', async ({ page }) => {
     await page.getByRole('button', { name: 'Register' }).click();
 
     const s: Promise<Buffer> = page.screenshot({
-        path: 'screenshots/screenshot.png'
+        path: 'screenshots/screenshot.png',
+        fullPage: true,
     });
 
 
