@@ -11,7 +11,8 @@ export default defineConfig({
     trace: 'retain-on-failure',
     launchOptions: {
       slowMo: 500, // Slow down operations by 50ms
-  }
+  },
+  baseURL: 'http://localhost:3000', // Base URL for tests
 }
   
 });
