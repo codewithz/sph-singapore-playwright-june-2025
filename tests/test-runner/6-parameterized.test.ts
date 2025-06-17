@@ -40,3 +40,13 @@ const inputs = [
 // You want to write a Playwright test that runs multiple input combinations to validate that the correct result is displayed based on the deposit and period selected.
 
 // How would you write a data-driven test that runs the same logic with different [sum, period, expected result] combinations?
+
+for (const [sum, period, result] of inputs) {
+    test(`testing with ${sum} ${period} ${result}`, async ({ page }) => {
+      await page.goto('/savings.html');
+      await page.getByTestId('deposit').fill(sum);
+      await page.getByTestId('period').selectOption(period);
+      await expect(page.getByTestId('result')).toHaveText(result);
+    });
+  }
+  
