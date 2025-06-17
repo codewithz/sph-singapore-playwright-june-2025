@@ -5,13 +5,15 @@ export default defineConfig({
   reporter: 'html',
   fullyParallel:true,
   workers:"50%", // Use 50% of available CPU cores for parallel execution
+  retries:2, // Retry failed tests up to 2 times
  
   use: {
     headless: false, 
     timezoneId: 'Asia/Singapore', // Set timezone to Singapore
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    trace: 'retain-on-failure',
+    trace: 'retry-with-trace', // Record trace on the first retry
+    
     launchOptions: {
       slowMo: 500, // Slow down operations by 50ms
   },
